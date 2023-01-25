@@ -25,6 +25,7 @@ table{
     /* width: 400px; */
     background-color: #EEEEEE;
     margin: auto;
+    padding: 10px;
     box-shadow: 5px 7px 10px 1px #000000;
 }
 
@@ -35,7 +36,7 @@ table{
 
 
 .info-section{
-    height: 200px;
+    height: 300px;
     background-color: #EEEEEE;
     margin: auto;
     margin-bottom: 20px;
@@ -49,6 +50,7 @@ table{
     /* background-color: #FFFFFF; */
     margin: auto;
     font-size: 70px;
+    border-radius: 90px;
     box-shadow: 5px 7px 10px 1px #000000;
 
 }
@@ -56,12 +58,19 @@ table{
 .lives{
     height: 50px;
     width: 150px;
-    background-color: #1fc7be;
-    /* margin: auto; */
+    background-color: #EEEEEE;
+    margin: 10px auto;
     box-shadow: 5px 7px 10px 1px #000000;
 }
 
 .lives img{
     width: 50px;
+}
+
+.levels button{
+    width: 80px;
+    height: 30px;
+    border-radius: 30px;
+    box-shadow: 5px 7px 10px 1px #000000;
 }
 

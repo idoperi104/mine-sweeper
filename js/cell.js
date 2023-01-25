@@ -123,14 +123,19 @@ function renderCell(location) {
         value = FLAG
         className = ''
     }
+
     else if (cell.isMine) value = MINE
     else if (cell.minesNegsCount > 0) value = cell.minesNegsCount
-    else value = EMPTY
+    else {
+        value = EMPTY   
+    }
 
     const elCell = document.querySelector(`.cell-${location.i}-${location.j}`)
     elCell.innerHTML = getCellHTML(value, className)
+
 }
 
 function getCellHTML(value, className) {
     return `<span class="${className}">${value}</span>`
 }
+

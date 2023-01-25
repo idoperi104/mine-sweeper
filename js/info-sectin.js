@@ -9,9 +9,12 @@ const SMILEY_DEAD = '😵'
 
 var gLivesCount
 
+
+
 function renderInfoSection(){
     renderSmiley(SMILEY_NORMAL)
     renderLives()
+    renderScore()
 }
 
 function renderSmiley(smiley){
@@ -28,3 +31,10 @@ function renderLives() {
     }
     elLives.innerHTML = strHTML
 }
+
+function renderScore(){
+    var elScore = document.querySelector('.score span')
+    elScore.innerHTML = gGame.shownCount
+}
+
+

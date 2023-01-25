@@ -16,6 +16,16 @@
     <div class="info-section">
         <div class="smiley" onclick="init()"></div>
         <div class="lives"></div>
+        
+        <h2 class="score">SCORE: <span>0</span></h2>
+        <p class="timer">Timer => 
+            <span id="minutes">00</span>:<span id="seconds">00</span>:<span id="tens">00</span>
+        </p>
+        <div class="levels">
+            <button data-level="easy" onclick="changeLevel(this)" id="easy">easy</button>
+            <button data-level="medium" onclick="changeLevel(this)" id="medium">medium</button>
+            <button data-level="hard" onclick="changeLevel(this)" id="hard">hard</button>
+        </div>
     </div>
 
     <div class="board-container"></div>
@@ -24,6 +34,7 @@
     <script src="js/game.js"></script>
     <script src="js/cell.js"></script>
     <script src="js/info-sectin.js"></script>
+    <script src="js/timer.js"></script>
 
     <footer>
         <p>Ido Peri</p>

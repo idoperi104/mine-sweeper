@@ -16,9 +16,9 @@
     <div class="info-section">
         <div class="smiley" onclick="init()"></div>
         <div class="lives"></div>
-        
+
         <h2 class="score">SCORE: <span>0</span></h2>
-        <p class="timer">Timer => 
+        <p class="timer">Timer =>
             <span id="minutes">00</span>:<span id="seconds">00</span>:<span id="tens">00</span>
         </p>
         <div class="levels">
@@ -26,15 +26,28 @@
             <button data-level="medium" onclick="changeLevel(this)" id="medium">medium</button>
             <button data-level="hard" onclick="changeLevel(this)" id="hard">hard</button>
         </div>
+        <div class="hints"></div>
+        <p class="bestTime">best time: <span>00.000</span></p>
+
+        <div class="safe-click">
+            <button onclick="safeClickButtonClicked(this)">safe click</button>
+            <p><span>3</span> clicks available</p>
+        </div>
+
+        <button class="manually-create" onclick="manuallyCreate(this)">
+            manually create</button>
+
     </div>
 
     <div class="board-container"></div>
 
     <script src="js/utils.js"></script>
-    <script src="js/game.js"></script>
     <script src="js/cell.js"></script>
     <script src="js/info-sectin.js"></script>
     <script src="js/timer.js"></script>
+    <script src="js/manual-mine.js"></script>
+    <script src="js/undo.js"></script>
+    <script src="js/game.js"></script>
 
     <footer>
         <p>Ido Peri</p>

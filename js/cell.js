@@ -15,7 +15,6 @@ function createCell(i, j) {
     return cell
 }
 
-
 function setMinesNegsCount() {
     for (var i = 0; i < gBoard.length; i++) {
         for (var j = 0; j < gBoard[i].length; j++) {
@@ -25,13 +24,10 @@ function setMinesNegsCount() {
             gBoard[i][j].minesNegsCount = count
 
             // set DOM
-            if (gBoard[i][j].minesNegsCount > 0 && !gBoard[i][j].isMine) {
-                renderCell({ i, j })
-            }
+            renderCell({ i, j })
         }
     }
 }
-
 
 function minesNegsCount(roxIdx, colIdx) {
     var mineCount = 0
@@ -47,20 +43,7 @@ function minesNegsCount(roxIdx, colIdx) {
     return mineCount
 }
 
-
-
 function setMines(clickedLoc) {
-    // gBoard[1][1].isMine = true
-    // gBoard[2][2].isMine = true
-    // gBoard[6][7].isMine = true
-    // gBoard[6][6].isMine = true
-    // gBoard[7][0].isMine = true
-    // renderCell({ i: 1, j: 1 }, getCellHTML(MINE))
-    // renderCell({ i: 2, j: 2 }, getCellHTML(MINE))
-    // renderCell({ i: 6, j: 6 }, getCellHTML(MINE))
-    // renderCell({ i: 6, j: 7 }, getCellHTML(MINE))
-    // renderCell({ i: 7, j: 0 }, getCellHTML(MINE))
-
     setEmptyLocations(clickedLoc)
     for (var i = 0; i < gLevel.MINES; i++) {
         // update model
@@ -70,7 +53,6 @@ function setMines(clickedLoc) {
         //update DOM
         renderCell(loc)
     }
-
 }
 
 function setEmptyLocations(clickedLoc) {
@@ -92,18 +74,17 @@ function getRandomLocation() {
 
 function renderBoard() {
     var strHTML = '<table><tbody>'
+
     for (var i = 0; i < gBoard.length; i++) {
-
         strHTML += '<tr>'
-        for (var j = 0; j < gBoard[0].length; j++) {
 
-            const cell = gBoard[i][j]
-
-            var value = EMPTY
+        for (var j = 0; j < gBoard[i].length; j++) {
 
             var className = `cell cell-${i}-${j}`
 
-            strHTML += `<td onclick="onCellClicked(this, ${i}, ${j})" oncontextmenu="onCellMarked(this, ${i}, ${j})" class="${className}"><span>${value}</span></td>`
+            strHTML += `<td onclick="onCellClicked(this, ${i}, ${j})"
+             oncontextmenu="onCellMarked(this, ${i}, ${j})" 
+             class="${className}"><span></span></td>`
         }
         strHTML += '</tr>'
     }
@@ -111,7 +92,6 @@ function renderBoard() {
 
     const elContainer = document.querySelector('.board-container')
     elContainer.innerHTML = strHTML
-
 }
 
 function renderCell(location) {
@@ -119,23 +99,16 @@ function renderCell(location) {
     var value
     var className = 'hidden'
     var cell = gBoard[location.i][location.j]
+
     if (cell.isMarked) {
         value = FLAG
         className = ''
     }
-
     else if (cell.isMine) value = MINE
     else if (cell.minesNegsCount > 0) value = cell.minesNegsCount
-    else {
-        value = EMPTY   
-    }
+    else value = EMPTY   
 
     const elCell = document.querySelector(`.cell-${location.i}-${location.j}`)
-    elCell.innerHTML = getCellHTML(value, className)
-
-}
-
-function getCellHTML(value, className) {
-    return `<span class="${className}">${value}</span>`
+    elCell.innerHTML = getHTML(value, className)
 }
 

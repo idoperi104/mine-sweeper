@@ -1,12 +1,5 @@
 'use strict'
 
-// location is an object like this - { i: 2, j: 7 }
-// function renderCell(location, value) {
-//     // Select the elCell and set the value
-//     const elCell = document.querySelector(`.cell-${location.i}-${location.j}`)
-//     elCell.innerHTML = value
-// }
-
 function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
@@ -18,4 +11,9 @@ function getRandomColor() {
         color += letters[Math.floor(Math.random() * 16)]
     }
     return color
+}
+
+
+function getHTML(value, className) {
+    return `<span class="${className}">${value}</span>`
 }

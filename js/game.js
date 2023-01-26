@@ -124,6 +124,7 @@ function onCellWithoutNegsClicked(location) {
 }
 
 function onCellMarked(elCell, i, j) {
+
     if (!gGame.isOn) return
 
     var cell = gBoard[i][j]
